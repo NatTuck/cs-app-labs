@@ -1,0 +1,43 @@
+CS:APP Labs
+===========
+
+
+Introduction
+------------
+
+Computer Systems : A Programmer's Perspective(CS:APP) is a systems course
+offered for undergraduate CS and ECE students at Carnegie Mellon University.
+This is my attempt to solve the various labs attempted by students at CMU.
+
+
+Home page of the labs
+---------------------
+
+The most updated version of these labs are available at home page of the
+companion textbook http://csapp.cs.cmu.edu/.
+
+
+Authors
+-------
+
+This repository is primarily maintained by
+
+    * Arvind S Raj <sraj.arvind@gmail.com>
+
+The author would like to thank 
+
+    * Randal E. Bryant, Dean, School of Computer Science, CMU
+    * David R. O'Hallaron, Professor of Computer Science, CMU
+
+for making these labs available for anyone to solve. Thanks a lot for these!
+PS: I hope it's okay if I share a copy of the public lab handouts. You still
+retain the rights over them :).
+
+
+Copyright
+---------
+
+Typically, I release most of my work free to everyone. But, these labs are not
+created by me so I do not own the rights to the code. My contribution to this
+repo is free for anyone to fiddle around but the original authors of the labs
+still retain the rights over the code they authored.
