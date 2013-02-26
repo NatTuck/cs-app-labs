@@ -1,0 +1,7 @@
+# Executable files
+btest
+fshow
+ishow
+
+# vim swap files
+*.swp
