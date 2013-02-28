@@ -139,7 +139,8 @@ NOTES:
  *   Rating: 1
  */
 int bitAnd(int x, int y) {
-  return 2;
+  /* Compute bitwise AND of arguments using bitwise OR and bitwise NEGATION */
+  return ~(~x | ~y);
 }
 
 
