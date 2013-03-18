@@ -179,7 +179,22 @@ int logicalShift(int x, int n) {
  *   Rating: 4
  */
 int bitCount(int x) {
-  return 2;
+  /* Implementation of Hamming Weight */
+  int bits1, bits2, bits4, bits8, bits16, temp, temp2, temp3, temp4, temp5;
+  bits1 = (0x55 << 8) + 0x55;
+  bits1 = (bits1 << 16) + bits1;  // 0b01010101010101010101010101010101
+  bits2 = (0x33 << 8) + 0x33;
+  bits2 = (bits2 << 16) + bits2;  // 0b00110011001100110011001100110011
+  bits4 = (0x0f << 8) + 0x0f;
+  bits4 = (bits4 << 16) + bits4;  // 0b00001111000011110000111100001111
+  bits8 = (0xff << 16) + 0xff;    // 0b00000000111111110000000011111111
+  bits16 = (0xff << 8) + 0xff;    // 0b00000000000000001111111111111111
+  temp = (x & bits1) + ((x >> 1) & bits1);
+  temp2 = (temp & bits2) + ((temp >> 2) & bits2);
+  temp3 = (temp2 & bits4) + ((temp2 >> 4) & bits4);
+  temp4 = (temp3 & bits8) + ((temp3 >> 8) & bits8);
+  temp5 = (temp4 & bits16) + ((temp4 >> 16) & bits16);
+  return temp5;
 }
 /* 
  * bang - Compute !x without using !
