@@ -165,6 +165,7 @@ int getByte(int x, int n) {
  *   Rating: 3 
  */
 int logicalShift(int x, int n) {
+  /* Perform logical shift by n bits and set most significant n bits to 0*/
   int y;
   x = x >> n;
   y = ~(~0 << n) << (33 + ~n);
