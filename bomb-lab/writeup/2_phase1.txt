@@ -1,0 +1,17 @@
+Phase 1
+=======
+
+In phase 1, a string is read and passed to the function phase_1. This argument
+and string "Public speaking is very easy." are passed to strings_not_equal().
+If string_not_equal() returns 0, then the bomb doesn't explode.
+
+Intuitively, enter the string "Public speaking is very easy."
+
+Welcome to my fiendish little bomb. You have 6 phases with
+which to blow yourself up. Have a nice day!
+Public speaking is very easy.
+Phase 1 defused. How about the next one?
+
+and phase 1 is defused! Great! Let's proceed to the next phase.
+
+PS: Add "Public speaking is very easy." to a file say ans before continuing.
