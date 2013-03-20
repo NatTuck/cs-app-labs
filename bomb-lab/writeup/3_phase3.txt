@@ -1,0 +1,64 @@
+Phase 3
+=======
+
+Phase 3 is slightly trickier than earlier levels(they do warn that it gets more
+difficult so I guess it's fair :) ) but I found it fairly straightforward.
+
+This phase expects an int, a char and another int:
+
+.text:08048B9F                 mov     edx, [ebp+input_string]
+.text:08048BA2                 add     esp, 0FFFFFFF4h
+.text:08048BA5                 lea     eax, [ebp+num2]
+.text:08048BA8                 push    eax
+.text:08048BA9                 lea     eax, [ebp+achar]
+.text:08048BAC                 push    eax
+.text:08048BAD                 lea     eax, [ebp+num1]
+.text:08048BB0                 push    eax
+.text:08048BB1                 push    offset aDCD     ; "%d %c %d"
+.text:08048BB6                 push    edx             ; char *
+.text:08048BB7                 call    _sscanf
+.text:08048BBC                 add     esp, 20h
+.text:08048BBF                 cmp     eax, 2
+.text:08048BC2                 jg      short loc_8048BC9
+.text:08048BC4                 call    explode_bomb
+
+I redefined the stack variables so that I can rename the offsets and make it
+more readable. Stack variables can be redefined by pressing Ctrl + K or
+navigating to Edit -> Functions -> Stack variables.
+
+After reading 2 ints and a char, the bomb checks if the first number is > 7 and
+explodes if it is:
+
+ loc_8048BC9:                            ; CODE XREF: phase_3+2Aj
+.text:08048BC9                 cmp     [ebp+num1], 7
+.text:08048BCD                 ja      loc_8048C88
+
+.text:08048C88 loc_8048C88:                            ; CODE XREF: phase_3+35j
+.text:08048C88                 mov     bl, 78h
+.text:08048C8A                 call    explode_bomb
+
+So we can say the first argument is a number <= 7.
+
+If the number is <= 7, the next statments are:
+
+mov     eax, [ebp+num1]
+jmp     ds:off_80497E8[eax*4]
+
+off_80497E8 seems to hold an array of values that point to various segments in
+the code segments. I realize that it is a jump table and thus, the equivalent
+high level code was probably a switch statement.
+
+I simply choose 0 and find that the following branch is taken:
+loc_8048BE0:
+    mov     bl, 'q'
+    cmp     [ebp+num2], 777
+    jz      loc_8048C8F
+
+Okay this gives me all the other required arguments: num2 has to be 777 and
+the achar should be (probably) 'q'. I feed these values to the bomb:
+
+That's number 2.  Keep going!
+0 q 777
+Halfway there!
+
+Awesome! Phase 3 defused! Onto phase 4.
