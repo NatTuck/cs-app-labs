@@ -1,0 +1,21 @@
+Introduction
+------------
+
+The binary bomb lab is a reverse engineering challenge where we have to
+"defuse" a bomb by supplying the correct input.
+
+
+Preliminary Study
+-----------------
+
+There are 2 ways to execute the bomb.
+1. Provide the input via stdin.
+2. Provide a file containing the input as argument.
+
+Upon running the binary, the following output is produced:
+
+Welcome to my fiendish little bomb. You have 6 phases with
+which to blow yourself up. Have a nice day!
+
+
+We have to defuse 6 phases and a bonus secret phase. Let's begin!
