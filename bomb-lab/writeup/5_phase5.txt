@@ -42,8 +42,8 @@ Here edx serves as the counter for this loop, ebx points to input, ecx points to
 the destination and esi points to the transform array.
 
 The loop first reads a character from input, performs bitwise AND with 0xf,
-indexes into the transform array using result of bitwise AND and stores it in
-transformed_string. The equivalent C code is
+indexes into the transform array using result of bitwise AND and stores the
+value there in transformed_string. The equivalent C code is
 
 for(i = 0; i <= 5; i++) {
     transformed_string[i] = transform_arr[(int)(input_string[i] & 0xf)];

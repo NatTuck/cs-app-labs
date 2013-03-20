@@ -13,7 +13,7 @@ Phase 2 expects 6 integers to be passed to it:
 .text:08048B60                 add     esp, 10h
 
 You will probably have [ebp + var_18] and [ebp + arg_0] instead of
-input_string and int_arry. Simply click on var_18 and hit 'n' to rename. This
+input_string and int_array. Simply click on var_18 and hit 'n' to rename. This
 makes it easier to remember what each stack variable is for.
 
 I think typically one must never trust function names(usually there are none in
@@ -89,5 +89,4 @@ Phase 1 defused. How about the next one?
 1 2 6 24 120 720
 That's number 2.  Keep going!
 
-
-Bomb level 2 solved. Onto the next.
+Phase 2 defused! Onto the next!
