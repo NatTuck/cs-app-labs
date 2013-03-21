@@ -233,7 +233,21 @@ int tmin(void) {
  *   Rating: 2
  */
 int fitsBits(int x, int n) {
-  return 2;
+  /* If the number is negative, subtract -1 from it(statements 1 to 3) and
+   * compute the absolute value(statement 4). If he result is less than the
+   * maximum value that can be stored in n bits return 1 else return 0. I have
+   * used 1's complement in statements 4 and 7 since the + 1 of 2's complement
+   * is redundant and not to exceed maximum possible operators.
+   */
+  int temp, temp2, temp3, temp4;
+  temp = x >> 31;
+  temp2 = temp;
+  temp = x + ~temp + 1;
+  temp = (temp2 ^ temp) + ~temp2;
+  temp4 = ~0;
+  temp3 = (1 << (n + temp4)) + temp4;
+  temp = ((temp3 + ~temp) >> 31);
+  return (temp + 1);
 }
 /* 
  * divpwr2 - Compute x/(2^n), for 0 <= n <= 30
