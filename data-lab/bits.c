@@ -204,6 +204,9 @@ int bitCount(int x) {
  *   Rating: 4 
  */
 int bang(int x) {
+  /* Perform bitwise negation of two's complement and restore most significant
+   * byte. MSB holds the value of bang.
+   */ 
   int y;
   y = (x & (0xff << 24));
   x = ~((~x) + 1);
@@ -217,6 +220,7 @@ int bang(int x) {
  *   Rating: 1
  */
 int tmin(void) {
+  /* Return result of 0b10000000 left shifted 24 times */
   return (0x80 << 24);
 }
 /* 
