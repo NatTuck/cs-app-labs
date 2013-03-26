@@ -234,7 +234,7 @@ int tmin(void) {
  */
 int fitsBits(int x, int n) {
   /* If the number is negative, subtract -1 from it(statements 1 to 3) and
-   * compute the absolute value(statement 4). If he result is less than the
+   * compute the absolute value(statement 4). If the result is less than the
    * maximum value that can be stored in n bits return 1 else return 0. I have
    * used 1's complement in statements 4 and 7 since the + 1 of 2's complement
    * is redundant and not to exceed maximum possible operators.
