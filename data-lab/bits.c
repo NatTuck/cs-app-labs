@@ -304,7 +304,20 @@ int isPositive(int x) {
  *   Rating: 3
  */
 int isLessOrEqual(int x, int y) {
-  return 2;
+  /*
+   * If sign bits are different
+   *    return sign bit of x
+   * else
+   *    return sign bit of (x - y - 1).
+   */
+  int temp, temp2, temp3, temp4, ret;
+  temp = (x >> 31);
+  temp2 = (y >> 31);
+  temp3 = (temp ^ temp2);
+  ret = (temp3 & temp) & 0x1;
+  temp4 = ((x + ~y) >> 31) & 0x1;
+  ret = ret + (~temp3 & temp4);
+  return ret;
 }
 /*
  * ilog2 - return floor(log base 2 of x), where x > 0
