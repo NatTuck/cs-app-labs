@@ -45,7 +45,7 @@ one.
 
 Before entering the loop, ebx(counter) is set to edi + 1 and exits if ebx > 5.
 
-In the loop body, bomb explodes int_array[edi] is equal to int_array[ebx]. Thus
+In the loop body, bomb explodes if int_array[edi] is equal to int_array[ebx]. Thus
 the inner loop can be written as:
 
 for(j = edi + 1; j < 5; j++) {
