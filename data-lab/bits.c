@@ -293,7 +293,8 @@ int negate(int x) {
  *   Rating: 3
  */
 int isPositive(int x) {
-  return 2;
+  /* Bitwise AND of double bang of x and sign bit of x */
+  return (~(x >> 31) & 0x1) & !(!x);
 }
 /* 
  * isLessOrEqual - if x <= y  then return 1, else return 0 
