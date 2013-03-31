@@ -327,7 +327,34 @@ int isLessOrEqual(int x, int y) {
  *   Rating: 4
  */
 int ilog2(int x) {
-  return 2;
+  /*
+   * Source: http://graphics.stanford.edu/~seander/bithacks.html.
+   * I implemented '>' using a combination of subtraction(addition with 2's
+   * complement and isPositive() code above.
+   */
+  int temp, temp2, temp3, res;
+  temp3 = (0xff << 8) + 0xfe;
+  temp = (x + ~temp3);
+  temp = (~(temp >> 31) & 0x1) & !(!temp);
+  res = temp << 4;
+  x = x >> res;
+  temp = (x + ~0xfe);
+  temp = (~(temp >> 31) & 0x1) & !(!temp);
+  temp2 = temp << 3;
+  x = x >> temp2;
+  res = res | temp2;
+  temp = (x + ~0xe);
+  temp = (~(temp >> 31) & 0x1) & !(!temp);
+  temp2 = temp << 2;
+  x = x >> temp2;
+  res = res | temp2;
+  temp = (x + ~0x2);
+  temp = (~(temp >> 31) & 0x1) & !(!temp);
+  temp2 = temp << 1;
+  x = x >> temp2;
+  res = res | temp2;
+  res = res | (x >> 1);
+  return res;
 }
 /* 
  * float_neg - Return bit-level equivalent of expression -f for
